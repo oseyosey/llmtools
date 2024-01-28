@@ -93,6 +93,8 @@ model.eval()
 tokenizer_name = "relaxml/Llama-1-7b-E8P-2Bit"
 tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=False)
 
+tokenizer.
+
 
 #* Fixing the model and tokenizer for Experiment*#
 # tokenizer = fix_tokenizer(tokenizer)

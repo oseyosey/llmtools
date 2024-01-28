@@ -79,6 +79,7 @@ quip/lib/utils/gptq_data_utils.py
 quip/lib/utils/lm_eval_adaptor.py
 quip/lib/utils/math_utils.py
 quip/lib/utils/matmul_had.py
+quip/lib/utils/matmul_had_old.py
 quip/lib/utils/matmul_kron.py
 quip/lib/utils/misc.py
 quip/lib/utils/unsafe_import.py
