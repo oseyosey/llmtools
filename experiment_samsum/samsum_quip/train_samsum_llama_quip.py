@@ -43,14 +43,14 @@ llm.eval()
 
 
 ##? Defining our own tokenizer. ?##
-tokenizer_name = "relaxml/Llama-1-7b-E8P-2Bit"
-#tokenizer_name = "model_name"
-tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=False)
+# tokenizer_name = "relaxml/Llama-1-7b-E8P-2Bit"
+tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+tokenizer.pad_token = tokenizer.eos_token
 
 
 #* Fixing the model and tokenizer for Experiment*#
-tokenizer = fix_tokenizer(tokenizer)
-llm = fix_model(llm, tokenizer, use_resize=False)
+# tokenizer = fix_tokenizer(tokenizer)
+# llm = fix_model(llm, tokenizer, use_resize=False)
 
 
 # os env setting

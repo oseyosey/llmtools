@@ -10,23 +10,23 @@ from llmtools.utils import to_half_precision
 
 
 # model config
-#model_name = '/share/kuleshov/jy928/llmtools-2bit/quip/quantized_weights/llama1-quip-7b-D4'
-model_name = 'relaxml/Llama-1-7b-E8P-2Bit'
+# model_name = '/share/kuleshov/jy928/llmtools-2bit/quip/quantized_weights/llama1-quip-7B-D4'
+model_name = 'relaxml/Llama-1-30b-E8P-2Bit'
 
 # load model
 llm, tokenizer, quip_config = AutoLLMForCausalLM.from_pretrained(model_name)
 
 #* AutoTokenizer is the lateste version of tokenizer, avoid tokenizer warning and error *#
-# tokenizer_name = "relaxml/Llama-1-7b-hf"
-# tokenizer = AutoTokenizer.from_pretrained(tokenizer_name, use_fast=False)
+tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=False)
+tokenizer.pad_token = tokenizer.eos_token
 
 llm.eval()
 
 # finetune training config
-mbatch_size=2
-batch_size=2
+mbatch_size=1
+batch_size=128
 epochs=3
-lr=4e-3
+lr=1e-3
 cutoff_len=256
 lora_r=8
 lora_alpha=16
@@ -35,9 +35,9 @@ val_set_size=0.2
 warmup_steps=0
 save_steps=50
 save_total_limit=3
-logging_steps=10
+logging_steps=1
 
-data_type = 'samsum'
+data_type = 'alpaca'
 dataset = None # will load alpaca from HF
 adapter_path = './llama1-7b-samsum-seed42'
 
